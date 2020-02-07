@@ -2,6 +2,7 @@
 *.egg-info
 **/*.pyc
 serviced.log
+requestbin.log
 
 codekit-config.json
 
