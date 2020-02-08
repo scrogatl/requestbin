@@ -38,7 +38,7 @@ def bins():
     
     bin = db.create_bin(private)
     root_logger.warn("create bin: " + bin.name) 
-    print(  "create bin: " + bin.name)
+    print("create bin: " + bin.name)
     if bin.private:
         session[bin.name] = bin.secret_key
     return _response(bin.to_dict())

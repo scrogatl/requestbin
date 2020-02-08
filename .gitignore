@@ -3,6 +3,7 @@
 **/*.pyc
 serviced.log
 requestbin.log
+setenv.sh
 
 codekit-config.json
 
