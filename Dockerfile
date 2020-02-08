@@ -19,7 +19,7 @@ RUN     gem install json
 RUN     gem install etc
 RUN     gem install fluentd
 RUN     fluent-gem install fluent-plugin-newrelic
-ADD     fluent.conf
+ADD     fluent.conf /opt/requestbin/fluent.conf
     
 
 # want all dependencies first so that if it's just a code change, don't have to
