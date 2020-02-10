@@ -1,6 +1,7 @@
 gevent
 ProxyTypes
 nose
+werkzeug==0.16
 wsgiref
 feedparser
 Flask-Cors

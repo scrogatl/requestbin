@@ -1,5 +1,6 @@
 app:
     build: .
+    env_file: ./env_vars
     environment:
         REALM: prod
         REDIS_URL: "//redis:6379"
