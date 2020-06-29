@@ -5,7 +5,6 @@ werkzeug==0.16
 feedparser
 Flask-Cors
 redis
-#msgpack-python
 msgpack
 python-dateutil
 gunicorn
