@@ -1,24 +1,25 @@
 import json
 import operator
+import sys
 
 from flask import session, make_response, request, render_template
 from requestbin import app, db
 
 # Import the logging module and the New Relic log formatter
-import logging
-from newrelic.agent import NewRelicContextFormatter
+#import logging
+#from newrelic.agent import NewRelicContextFormatter
 
 # Instantiate a new log handler
 # handler = logging.StreamHandler()
-handler = logging.FileHandler("requestbin.log")
+#handler = logging.FileHandler("requestbin.log")
 
 # Instantiate the log formatter and add it to the log handler
-formatter = NewRelicContextFormatter()
-handler.setFormatter(formatter)
+#formatter = NewRelicContextFormatter()
+#handler.setFormatter(formatter)
 
 # Get the root logger and add the handler to it
-root_logger = logging.getLogger("requestbin")
-root_logger.addHandler(handler)
+#root_logger = logging.getLogger("requestbin")
+#root_logger.addHandler(handler)
 
 def _response(object, code=200):
     jsonp = request.args.get('jsonp')
@@ -37,8 +38,6 @@ def bins():
     private = request.form.get('private') in ['true', 'on']
     
     bin = db.create_bin(private)
-    root_logger.warn("create bin: " + bin.name) 
-    print("create bin: " + bin.name)
     if bin.private:
         session[bin.name] = bin.secret_key
     return _response(bin.to_dict())

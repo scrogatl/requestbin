@@ -1,6 +1,6 @@
-import config
+from . import config
 import os
-from cStringIO import StringIO
+from io import StringIO
 
 from flask import Flask
 from flask_cors import CORS
@@ -17,7 +17,7 @@ class WSGIRawBody(object):
 
         body = environ['wsgi.input'].read(length)
         environ['raw'] = body
-        environ['wsgi.input'] = StringIO(body)
+        environ['wsgi.input'] = StringIO(str(body))
 
         # Call the wrapped application
         app_iter = self.application(environ, self._sr_callback(start_response))
@@ -59,7 +59,7 @@ if config.BUGSNAG_KEY:
     )
     handle_exceptions(app)
 
-from filters import *
+from .filters import *
 app.jinja_env.filters['status_class'] = status_class
 app.jinja_env.filters['friendly_time'] = friendly_time
 app.jinja_env.filters['friendly_size'] = friendly_size

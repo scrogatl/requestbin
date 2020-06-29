@@ -1,7 +1,24 @@
-import urllib
+import urllib.request, urllib.parse, urllib.error
 from flask import session, redirect, url_for, escape, request, render_template, make_response
 
 from requestbin import app, db
+
+# Import the logging module and the New Relic log formatter
+#import logging
+#from newrelic.agent import NewRelicContextFormatter
+
+# Instantiate a new log handler
+# handler = logging.StreamHandler()
+#handler = logging.FileHandler("requestbin.log")
+
+# Instantiate the log formatter and add it to the log handler
+#formatter = NewRelicContextFormatter()
+#handler.setFormatter(formatter)
+
+# Get the root logger and add the handler to it
+#root_logger = logging.getLogger("requestbin")
+#root_logger.addHandler(handler)
+
 
 def update_recent_bins(name):
     if 'recent' not in session:
@@ -37,7 +54,7 @@ def bin(name):
         bin = db.lookup_bin(name)
     except KeyError:
         return "Not found\n", 404
-    if request.query_string == 'inspect':
+    if request.query_string.decode('ASCII') == 'inspect':
         if bin.private and session.get(bin.name) != bin.secret_key:
             return "Private bin\n", 403
         update_recent_bins(name)

@@ -1,6 +1,7 @@
 **/**/*.pyc
 *.egg-info
 **/*.pyc
+**/*.swp
 serviced.log
 requestbin.log
 env_vars

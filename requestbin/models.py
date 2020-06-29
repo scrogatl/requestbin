@@ -55,7 +55,7 @@ class Bin(object):
     def add(self, request):
         self.requests.insert(0, Request(request))
         if len(self.requests) > self.max_requests:
-            for _ in xrange(self.max_requests, len(self.requests)):
+            for _ in range(self.max_requests, len(self.requests)):
                 self.requests.pop(self.max_requests)
 
 
@@ -121,10 +121,11 @@ class Request(object):
     def load(data):
         r = Request()
         try:
-            r.__dict__ = msgpack.loads(data, encoding="utf-8")
+            #r.__dict__ = msgpack.loads(data, encoding="utf-8")
+            r.__dict__ = msgpack.loads(data)
         except (UnicodeDecodeError):
-            r.__dict__ = msgpack.loads(data, encoding="ISO-8859-1")
-
+            #r.__dict__ = msgpack.loads(data, encoding="ISO-8859-1")
+            r.__dict__ = msgpack.loads(data)
         return r
 
     # def __iter__(self):

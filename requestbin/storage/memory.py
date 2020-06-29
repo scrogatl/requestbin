@@ -1,5 +1,6 @@
 import time
 import operator
+import asyncio
 
 from ..models import Bin
 
@@ -18,12 +19,13 @@ class MemoryStorage():
 
     def _cleanup_loop(self):
         while True:
-            self.async.sleep(self.cleanup_interval)
+            #self.async.sleep(self.cleanup_interval)
+            asyncio.sleep(self.clenup_interval)
             self._expire_bins()
 
     def _expire_bins(self):
         expiry = time.time() - self.bin_ttl
-        for name, bin in self.bins.items():
+        for name, bin in list(self.bins.items()):
             if bin.created < expiry:
                 self.bins.pop(name)
 

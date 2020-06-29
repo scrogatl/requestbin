@@ -1,4 +1,4 @@
-import os, urlparse
+import os, urllib.parse
 DEBUG = True
 REALM = os.environ.get('REALM', 'local')
 
@@ -37,7 +37,7 @@ if REALM == 'prod':
     STORAGE_BACKEND = "requestbin.storage.redis.RedisStorage"
 
     REDIS_URL = os.environ.get("REDIS_URL")
-    url_parts = urlparse.urlparse(REDIS_URL)
+    url_parts = urllib.parse.urlparse(REDIS_URL)
     REDIS_HOST = url_parts.hostname
     REDIS_PORT = url_parts.port
     REDIS_PASSWORD = url_parts.password

@@ -2,11 +2,11 @@ gevent
 ProxyTypes
 nose
 werkzeug==0.16
-wsgiref
 feedparser
 Flask-Cors
 redis
-msgpack-python
+#msgpack-python
+msgpack
 python-dateutil
 gunicorn
 bugsnag

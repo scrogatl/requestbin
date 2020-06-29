@@ -1,7 +1,5 @@
-from __future__ import absolute_import
-
 import time
-import cPickle as pickle
+import pickle as pickle
 
 import redis
 
@@ -55,6 +53,7 @@ class RedisStorage():
         try:
             bin = Bin.load(serialized_bin)
             return bin
-        except TypeError:
+            #except TypeError:
+        except Exception as e:
             self.redis.delete(key) # clear bad data
             raise KeyError("Bin not found")
