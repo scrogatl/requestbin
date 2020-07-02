@@ -19,7 +19,5 @@ ADD requestbin  /opt/requestbin/requestbin/
 EXPOSE 8000
 
 WORKDIR /opt/requestbin
-#CMD gunicorn -b 0.0.0.0:8000 --worker-class gevent --workers 2 --max-requests 1000 requestbin:app
 ENV NEW_RELIC_CONFIG_FILE=/opt/requestbin/requestbin/newrelic.ini
 CMD newrelic-admin run-program gunicorn -b 0.0.0.0:8000 --worker-class gevent --workers 2 --max-requests 1000 requestbin:app
-#CMD ./wrapper.sh

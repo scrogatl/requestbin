@@ -2,6 +2,8 @@
 
 Originally Created by [Jeff Lindsay](http://progrium.com)
 
+Upgraded to python3 by [Scott Rogers](scottrogers@newrelic.com)
+
 License
 -------
 MIT
