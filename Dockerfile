@@ -19,4 +19,4 @@ ADD requestbin  /opt/requestbin/requestbin/
 EXPOSE 8000
 
 WORKDIR /opt/requestbin
-CMD run-program gunicorn -b 0.0.0.0:8000 --worker-class gevent --workers 2 --max-requests 1000 requestbin:app
+CMD gunicorn -b 0.0.0.0:8000 --worker-class gevent --workers 2 --max-requests 1000 requestbin:app
