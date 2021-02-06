@@ -2,7 +2,7 @@
 
 Originally Created by [Jeff Lindsay](http://progrium.com)
 
-Upgraded to python3 by Scott Rogers <rogersc@vmware.com>
+Upgraded to python3 by Scott Rogers <rogerssc@vmware.com>
 
 
 License
