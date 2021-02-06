@@ -3,22 +3,6 @@ from flask import session, redirect, url_for, escape, request, render_template, 
 
 from requestbin import app, db
 
-# Import the logging module and the New Relic log formatter
-#import logging
-#from newrelic.agent import NewRelicContextFormatter
-
-# Instantiate a new log handler
-# handler = logging.StreamHandler()
-#handler = logging.FileHandler("requestbin.log")
-
-# Instantiate the log formatter and add it to the log handler
-#formatter = NewRelicContextFormatter()
-#handler.setFormatter(formatter)
-
-# Get the root logger and add the handler to it
-#root_logger = logging.getLogger("requestbin")
-#root_logger.addHandler(handler)
-
 
 def update_recent_bins(name):
     if 'recent' not in session:
